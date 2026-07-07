@@ -1,0 +1,64 @@
+%% DataEase v2.10.7 - Architecture Diagrams (English labels per AGENTS.md)
+%% Rendered by Mermaid. Keep all text English to avoid layout issues.
+
+%% ---------- Diagram 1: System Context (C4 L1) ----------
+graph TD
+    U[("User / Browser")] -->|HTTPS + DE-TOKEN| WEB["DataEase Web UI<br/>(Vue3 SPA)"]
+    WEB -->|REST API| BE["core-backend<br/>(Spring Boot 3.3)"]
+    BE -->|JDBC / SQL| EXT[("External DataSources<br/>MySQL/ClickHouse/Oracle/.../API")]
+    BE -->|JDBC| META[("H2 Metadata DB<br/>(embedded)")]
+    BE -->|Feign (distributed mode)| PERM[("Permission Service<br/>(api-permissions / de-xpack)")]
+    BE -->|WebSocket| WS["WebSocket<br/>(real-time dashboard)"]
+    BE -->|template SQL| ENGINE["Calcite SQL Engine<br/>(cross-source query)"]
+
+%% ---------- Diagram 2: Module Layering ----------
+graph TD
+    FE["core-frontend (Vue3)"] -->|REST| BE
+    subgraph Backend [core-backend]
+        BE --> COMMONS["io.dataease.commons"]
+        BE --> DOMAIN["io.dataease.{dataset,datasource,chart,<br/>visualization,home,share,system,...}"]
+        BE --> AUTHF["sdk/common: CommunityTokenFilter"]
+    end
+    subgraph SDK [sdk modules]
+        API["api (api-base / api-permissions / api-sync)"]
+        COMMON["common (auth.filter, utils)"]
+        DIST["distributed (Feign clients)"]
+        EXT["extensions (datasource / view / datafilling)"]
+    end
+    BE --> SDK
+    API -.->|Feign in distributed mode| PERM
+
+%% ---------- Diagram 3: Authentication Flow (community) ----------
+sequenceDiagram
+    participant C as Client (Browser)
+    participant F as CommunityTokenFilter (sdk/common)
+    participant A as AuthUtils.getUser()
+    participant V as JWT Verifier (HMAC256)
+    C->>F: HTTP Request + DE-TOKEN header
+    F->>A: resolve current TokenUserBO (userId, defaultOid)
+    alt token present and !licenseValid (community)
+        F->>V: verify JWT claims uid + oid
+        V-->>F: ok / exception
+        alt invalid
+            F-->>C: 401 + DE-GATEWAY-FLAG header
+        else valid
+            F->>F: continue filter chain, set user context
+            F-->>C: response
+        end
+    else licensed (enterprise de-xpack handles auth)
+        F->>F: skip enforcement, pass through
+    end
+
+%% ---------- Diagram 4: Permission Domain (api-permissions) ----------
+graph LR
+    LOGIN["LoginApi (MFA)"] --> USER["UserApi"]
+    USER --> ROLE["RoleApi"]
+    USER --> ORG["OrgApi (org tree)"]
+    ROLE --> REL["RelationApi"]
+    ROLE --> AUTH["AuthApi (menu + business<br/>resource permission trees)"]
+    AUTH --> ROW["RowPermissionsApi (dataset)"]
+    AUTH --> COL["ColumnPermissionsApi (dataset)"]
+    AUTH --> EMB["EmbeddedApi (share/embed)"]
+    AUTH --> KEY["ApiKeyApi"]
+    AUTH --> SET["PerSettingApi"]
+    AUTH --> VAR["SysVariablesApi"]

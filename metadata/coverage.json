@@ -1,0 +1,137 @@
+{
+  "project": "DataEase",
+  "version": "v2.10.7",
+  "generatedAt": "2026-07-07T05:52:28Z",
+  "target": {
+    "sourceFiles": 1791,
+    "sourceLoc": 300858
+  },
+  "byModule": {
+    "core-backend": {
+      "total": 431,
+      "source": 418,
+      "loc": 59177,
+      "analyzedSource": 0
+    },
+    "core-frontend": {
+      "total": 1560,
+      "source": 735,
+      "loc": 216313,
+      "analyzedSource": 0
+    },
+    "dataease-docs": {
+      "total": 12,
+      "source": 0,
+      "loc": 0,
+      "analyzedSource": 0
+    },
+    "drivers": {
+      "total": 8,
+      "source": 0,
+      "loc": 0,
+      "analyzedSource": 0
+    },
+    "github-ci": {
+      "total": 7,
+      "source": 0,
+      "loc": 91,
+      "analyzedSource": 0
+    },
+    "installer": {
+      "total": 21,
+      "source": 6,
+      "loc": 1393,
+      "analyzedSource": 0
+    },
+    "mapFiles": {
+      "total": 3394,
+      "source": 0,
+      "loc": 0,
+      "analyzedSource": 0
+    },
+    "root": {
+      "total": 16,
+      "source": 0,
+      "loc": 354,
+      "analyzedSource": 0
+    },
+    "sdk-api-base": {
+      "total": 304,
+      "source": 303,
+      "loc": 10622,
+      "analyzedSource": 0
+    },
+    "sdk-api-permissions": {
+      "total": 97,
+      "source": 96,
+      "loc": 2857,
+      "analyzedSource": 0
+    },
+    "sdk-api-sync": {
+      "total": 19,
+      "source": 18,
+      "loc": 836,
+      "analyzedSource": 0
+    },
+    "sdk-common": {
+      "total": 116,
+      "source": 115,
+      "loc": 6476,
+      "analyzedSource": 0
+    },
+    "sdk-distributed": {
+      "total": 12,
+      "source": 11,
+      "loc": 924,
+      "analyzedSource": 0
+    },
+    "sdk-ext-datafilling": {
+      "total": 11,
+      "source": 10,
+      "loc": 677,
+      "analyzedSource": 0
+    },
+    "sdk-ext-datasource": {
+      "total": 29,
+      "source": 28,
+      "loc": 1763,
+      "analyzedSource": 0
+    },
+    "sdk-ext-view": {
+      "total": 52,
+      "source": 51,
+      "loc": 1693,
+      "analyzedSource": 0
+    },
+    "staticResource": {
+      "total": 2,
+      "source": 0,
+      "loc": 0,
+      "analyzedSource": 0
+    }
+  },
+  "sourceFileAnalysis": {
+    "analyzed": 0,
+    "total": 1791,
+    "percent": 0.0
+  },
+  "docsProgress": {
+    "architecture": [
+      "overview",
+      "tech-stack",
+      "directory-structure",
+      "build-deploy",
+      "security-model"
+    ],
+    "modules": [],
+    "backend": [],
+    "frontend": [],
+    "database": [],
+    "plugin": [],
+    "api": [],
+    "upgrade": [],
+    "adr": [],
+    "glossary": []
+  },
+  "notes": "Architecture-level docs completed (5 docs + diagram). Source-file (class/component) analysis pending. Coverage percent counts analyzed source files / total source files."
+}

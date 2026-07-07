@@ -1,0 +1,235 @@
+{
+  "project": "DataEase",
+  "version": "v2.10.7",
+  "generatedAt": "2026-07-07T05:43:34Z",
+  "totals": {
+    "files": 6091,
+    "sourceFiles": 1791,
+    "loc": 303176,
+    "sourceLoc": 300858
+  },
+  "byModule": {
+    "core-backend": {
+      "total": 431,
+      "source": 418,
+      "loc": 59177
+    },
+    "core-frontend": {
+      "total": 1560,
+      "source": 735,
+      "loc": 216313
+    },
+    "dataease-docs": {
+      "total": 12,
+      "source": 0,
+      "loc": 0
+    },
+    "drivers": {
+      "total": 8,
+      "source": 0,
+      "loc": 0
+    },
+    "github-ci": {
+      "total": 7,
+      "source": 0,
+      "loc": 91
+    },
+    "installer": {
+      "total": 21,
+      "source": 6,
+      "loc": 1393
+    },
+    "mapFiles": {
+      "total": 3394,
+      "source": 0,
+      "loc": 0
+    },
+    "root": {
+      "total": 16,
+      "source": 0,
+      "loc": 354
+    },
+    "sdk-api-base": {
+      "total": 304,
+      "source": 303,
+      "loc": 10622
+    },
+    "sdk-api-permissions": {
+      "total": 97,
+      "source": 96,
+      "loc": 2857
+    },
+    "sdk-api-sync": {
+      "total": 19,
+      "source": 18,
+      "loc": 836
+    },
+    "sdk-common": {
+      "total": 116,
+      "source": 115,
+      "loc": 6476
+    },
+    "sdk-distributed": {
+      "total": 12,
+      "source": 11,
+      "loc": 924
+    },
+    "sdk-ext-datafilling": {
+      "total": 11,
+      "source": 10,
+      "loc": 677
+    },
+    "sdk-ext-datasource": {
+      "total": 29,
+      "source": 28,
+      "loc": 1763
+    },
+    "sdk-ext-view": {
+      "total": 52,
+      "source": 51,
+      "loc": 1693
+    },
+    "staticResource": {
+      "total": 2,
+      "source": 0,
+      "loc": 0
+    }
+  },
+  "byLanguage": {
+    "env": {
+      "total": 1,
+      "source": 0,
+      "loc": 0
+    },
+    "font": {
+      "total": 2,
+      "source": 0,
+      "loc": 0
+    },
+    "html": {
+      "total": 3,
+      "source": 3,
+      "loc": 44
+    },
+    "image": {
+      "total": 37,
+      "source": 0,
+      "loc": 0
+    },
+    "jar": {
+      "total": 8,
+      "source": 0,
+      "loc": 0
+    },
+    "java": {
+      "total": 1003,
+      "source": 1003,
+      "loc": 70066
+    },
+    "javascript": {
+      "total": 12,
+      "source": 12,
+      "loc": 1869
+    },
+    "json": {
+      "total": 3397,
+      "source": 0,
+      "loc": 0
+    },
+    "lua": {
+      "total": 2,
+      "source": 2,
+      "loc": 623
+    },
+    "markdown": {
+      "total": 22,
+      "source": 0,
+      "loc": 0
+    },
+    "other": {
+      "total": 22,
+      "source": 0,
+      "loc": 0
+    },
+    "properties": {
+      "total": 5,
+      "source": 0,
+      "loc": 637
+    },
+    "shell": {
+      "total": 3,
+      "source": 3,
+      "loc": 481
+    },
+    "sql": {
+      "total": 38,
+      "source": 38,
+      "loc": 10646
+    },
+    "stringtemplate": {
+      "total": 1,
+      "source": 1,
+      "loc": 78
+    },
+    "stylesheet": {
+      "total": 36,
+      "source": 0,
+      "loc": 0
+    },
+    "svg": {
+      "total": 738,
+      "source": 0,
+      "loc": 0
+    },
+    "systemd": {
+      "total": 1,
+      "source": 0,
+      "loc": 0
+    },
+    "toml": {
+      "total": 1,
+      "source": 0,
+      "loc": 12
+    },
+    "typescript": {
+      "total": 257,
+      "source": 257,
+      "loc": 63449
+    },
+    "vue": {
+      "total": 463,
+      "source": 463,
+      "loc": 150865
+    },
+    "xml": {
+      "total": 24,
+      "source": 9,
+      "loc": 3885
+    },
+    "yaml": {
+      "total": 15,
+      "source": 0,
+      "loc": 521
+    }
+  },
+  "byCategory": {
+    "asset": 777,
+    "build": 19,
+    "config": 18,
+    "data": 3421,
+    "doc": 6,
+    "other": 59,
+    "source": 1791
+  },
+  "mavenModules": [
+    "core-backend",
+    "sdk-api-base",
+    "sdk-api-permissions",
+    "sdk-api-sync",
+    "sdk-common",
+    "sdk-distributed",
+    "sdk-ext-datafilling",
+    "sdk-ext-datasource",
+    "sdk-ext-view"
+  ]
+}
