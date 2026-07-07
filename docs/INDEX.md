@@ -60,9 +60,11 @@
 
 - `api/`：对外 REST API 汇总（基于 Knife4j/OpenAPI）— *待分析*
 
-## 升级差异（Upgrade）🔲
+## 升级与二次开发（Upgrade）✅
 
-- `upgrade/`：版本间差异分析（支持 v2.10.7 → 后续版本增量更新）— *待分析*
+| 文档 | 内容 |
+|------|------|
+| [permission-development-guide.md](upgrade/permission-development-guide.md) | **权限二次开发建议（Task 9）** — 六层权限架构剖析 + RBAC/ACL/ABAC 落地方案（A/B/C/D 四方案）+ Casbin 集成 + 安全加固 + 实施检查清单 |
 
 ## 架构决策记录（ADR）🔲
 
@@ -82,4 +84,4 @@
 | 模块/类分析（前端/数据库） | 🔲 待分析 |
 | 前端分析 | 🔲 0% |
 | 数据库分析 | 🔲 0% |
-| 权限二次开发建议 | 🔲 依赖 `security-model.md` + `backend/api-permissions.md`（基石已完成） |
+| 权限二次开发建议 | ✅ 完成（`upgrade/permission-development-guide.md`，含 4 套方案 + 安全加固） |

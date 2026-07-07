@@ -20,7 +20,7 @@ v2.10.7
 
 ## Current Phase
 
-Phase 1 —— 模块/类级分析（已完成：源码扫描、Source Map、整体架构、鉴权与权限模型基石）
+Phase 1 —— 模块/类级分析（已完成：源码扫描、Source Map、整体架构、后端逐包分析、权限二次开发建议）
 
 
 ## Task Status
@@ -29,12 +29,12 @@ Phase 1 —— 模块/类级分析（已完成：源码扫描、Source Map、整
 - [x] 2. 建立 Source Map（metadata/source-map.json；源码文件目标 1791）
 - [x] 3. 分析整体架构（docs/architecture/* 5 篇 + docs/diagrams/architecture.mmd）
 - [x] 3.1 鉴权与权限安全模型（docs/architecture/security-model.md，Task 9 基石）
-- [ ] 4. 分析模块（docs/modules/）
-- [ ] 5. 分析 Backend（docs/backend/，1003 个 Java 文件）
+- [x] 4. 分析模块（docs/modules/index.md）
+- [x] 5. 分析 Backend（docs/backend/ 11 篇，1003 个 Java 文件 100% 覆盖）
 - [ ] 6. 分析 Frontend（docs/frontend/，463 .vue / 257 .ts）
 - [ ] 7. 分析 Database（docs/database/，38 个 SQL）
 - [ ] 8. 建立版本升级机制（scripts/scan_source.py 已可复用做版本差异）
-- [ ] 9. 二次开发建议——权限检查（RBAC/ACL/ABAC，基石见 security-model.md）
+- [x] 9. 二次开发建议——权限检查（RBAC/ACL/ABAC，docs/upgrade/permission-development-guide.md）
 
 
 ## Task（编号映射）

@@ -143,9 +143,11 @@
     "database": [],
     "plugin": [],
     "api": [],
-    "upgrade": [],
+    "upgrade": [
+      "permission-development-guide"
+    ],
     "adr": [],
     "glossary": []
   },
-  "notes": "Backend Java analysis 100% done (1003 files, 11 docs). Frontend/Database pending."
+  "notes": "Backend Java 100% done. Task 9 (permission development guide) completed. Frontend/Database pending."
 }
