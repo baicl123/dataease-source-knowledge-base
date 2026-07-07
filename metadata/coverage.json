@@ -17,7 +17,7 @@
       "total": 1560,
       "source": 735,
       "loc": 216313,
-      "analyzedSource": 0
+      "analyzedSource": 735
     },
     "dataease-docs": {
       "total": 12,
@@ -111,9 +111,9 @@
     }
   },
   "sourceFileAnalysis": {
-    "analyzed": 1050,
+    "analyzed": 1785,
     "total": 1791,
-    "percent": 58.6
+    "percent": 99.7
   },
   "docsProgress": {
     "architecture": [
@@ -139,7 +139,20 @@
       "integration-sdk",
       "application-entry"
     ],
-    "frontend": [],
+    "frontend": [
+      "index",
+      "infrastructure",
+      "utils-supplement",
+      "api-layer",
+      "chart-views",
+      "visualization-views",
+      "views-visualized",
+      "views-system",
+      "views-share",
+      "misc-views",
+      "components",
+      "custom-component"
+    ],
     "database": [],
     "plugin": [],
     "api": [],
@@ -149,5 +162,5 @@
     "adr": [],
     "glossary": []
   },
-  "notes": "Backend Java 100% done. Task 9 (permission development guide) completed. Frontend/Database pending."
+  "notes": "Backend 100% + Frontend 100% done. Database pending. Total coverage ~100% of source files."
 }

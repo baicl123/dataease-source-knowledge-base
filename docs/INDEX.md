@@ -44,9 +44,24 @@
 | [integration-sdk.md](backend/integration-sdk.md) | defeign/websocket/license + sdk(distributed/api-base/api-sync/common/ext-*) | CommunityTokenFilter、LicenseUtil、Feign 客户端 |
 | [application-entry.md](backend/application-entry.md) | 包根 CoreApplication / MybatisPlusGenerator | 启动类注解、代码生成器 |
 
-## 前端（Frontend）🔲
+## 前端（Frontend）✅
 
-- `frontend/`：Vue 组件/路由/状态/API 分析 — *待分析*（463 个 .vue / 257 个 .ts）
+> 463 个 .vue + 239 个 .ts 文件已 100% 覆盖（12 篇文档）。
+
+| 文档 | 覆盖范围 | 关键结论 |
+|------|---------|---------|
+| [index.md](frontend/index.md) | 前端架构导航索引 | 架构图、覆盖统计、技术栈 |
+| [infrastructure.md](frontend/infrastructure.md) | router/store/hooks/permission | 路由守卫（动态角色路由）、Pinia 22 模块、三层白名单 |
+| [utils-supplement.md](frontend/utils-supplement.md) | utils/config/directive/plugins/models | AES+RSA 加密、CrossPermission、Vue 指令（v-permission/v-click-outside） |
+| [api-layer.md](frontend/api-layer.md) | api/ (31 文件) | 8 大领域 API 契约、axios 拦截链、token 自动刷新 |
+| [chart-views.md](frontend/chart-views.md) | views/chart/ (141 文件) | 图表编辑器、40 种图表类型、4 引擎（ECharts/G2Plot/L7/S2） |
+| [visualization-views.md](frontend/visualization-views.md) | views/data-visualization/dashboard/ (62 文件) | 画布编辑器拖拽/缩放/对齐、预览/分享链接、数据集管理 |
+| [views-visualized.md](frontend/views-visualized.md) | views/visualized/ (48 文件) | 数据集/数据源管理界面、InfoTemplate K/V 通用配置 |
+| [views-system.md](frontend/views-system.md) | views/system/ (21 文件) | 系统管理（用户/角色/组织/菜单/嵌入/外观/水印/API Key） |
+| [views-share.md](frontend/views-share.md) | views/share/ (14 文件) | 公共链接分享（UUID→密码→Ticket→PreviewCanvas） |
+| [misc-views.md](frontend/misc-views.md) | layout/pages/mobile/common/template/copilot/login/about/watermark/… | 应用框架、登录 RSA 加密、移动端 Vant 适配、Copilot |
+| [components.md](frontend/components.md) | components/ (133 文件) | 画布核心（CanvasCore+Shape+MarkLine）、矩阵排版、筛选器 |
+| [custom-component.md](frontend/custom-component.md) | custom-component/ (112 文件) | 组件注册表（16 项）、v-query 筛选器联动、user-view 图表容器 |
 
 ## 数据库（Database）🔲
 
@@ -81,7 +96,6 @@
 | 源码扫描 / Source Map | ✅ 完成（6091 文件，1791 源码文件） |
 | 架构分析 | ✅ 完成（5 篇 + 图） |
 | 模块/类分析（后端 Java） | ✅ 100%（1003 个 Java，11 篇文档） |
-| 模块/类分析（前端/数据库） | 🔲 待分析 |
-| 前端分析 | 🔲 0% |
-| 数据库分析 | 🔲 0% |
+| 模块/类分析（前端） | ✅ 100%（463 .vue + 239 .ts，12 篇文档） |
+| 数据库分析 | 🔲 0%（38 SQL） |
 | 权限二次开发建议 | ✅ 完成（`upgrade/permission-development-guide.md`，含 4 套方案 + 安全加固） |
