@@ -22,13 +22,27 @@
 | [security-model.md](architecture/security-model.md) | **鉴权与权限模型**（CommunityTokenFilter + 权限领域 API + RBAC/ACL/ABAC 映射）— Task 9 基石 |
 | [../diagrams/architecture.mmd](../diagrams/architecture.mmd) | Mermaid 架构图（系统上下文/分层/认证流/权限域） |
 
-## 模块（Modules）🔲
+## 模块（Modules）✅
 
-- `modules/`：按业务域的模块级分析（dataset / datasource / chart / visualization / share / system / ai ...）— *待分析*
+- [modules/index.md](modules/index.md)：后端业务域模块地图（领域 → 文档 → 关键类 → 暴露 API → DB 表）
 
-## 后端（Backend）🔲
+## 后端（Backend）✅
 
-- `backend/`：Java 类级分析（逐包 `io.dataease.*`）— *待分析*（1003 个 Java 文件）
+> 1003 个 Java 文件已 100% 覆盖（逐包 `io.dataease.*` + SDK + 包根 2 文件）。
+
+| 文档 | 覆盖包 / 范围 | 关键结论 |
+|------|---------------|----------|
+| [foundation.md](backend/foundation.md) | commons/config/startup/listener/interceptor/system/menu | 启动编排、MybatisInterceptor 字段加密、Ehcache、菜单 |
+| [auth-core.md](backend/auth-core.md) | substitute(permissions)/share | 兜底鉴权实现 + 分享链接 JWT 校验（含硬编码密钥风险） |
+| [api-permissions.md](backend/api-permissions.md) | sdk/api/api-permissions | 权限领域契约：RBAC+ACL+ABAC 雏形（行/列权限表达式树） |
+| [dataset.md](backend/dataset.md) | dataset | 数据集建模→SQL、行列权限注入点 |
+| [datasource.md](backend/datasource.md) | datasource + sdk/extensions/extensions-datasource | 18 类数据源、驱动隔离、连接池、Provider 扩展 |
+| [engine.md](backend/engine.md) | engine | ST4 SQL 构建层（Calcite 集成在 datasource/provider） |
+| [visualization.md](backend/visualization.md) | chart/visualization/home/template | 图表取数链路、42 Handler、发布镜像、模板市场 |
+| [ai-copilot.md](backend/ai-copilot.md) | ai/copilot | 外部 LLM 调用、令牌管理、HTTPS 校验关闭风险 |
+| [job-msg-resource.md](backend/job-msg-resource.md) | job/exportCenter/msgCenter/operation/resource/map/font | 双轨调度、导出线程池、操作日志、地图字体 |
+| [integration-sdk.md](backend/integration-sdk.md) | defeign/websocket/license + sdk(distributed/api-base/api-sync/common/ext-*) | CommunityTokenFilter、LicenseUtil、Feign 客户端 |
+| [application-entry.md](backend/application-entry.md) | 包根 CoreApplication / MybatisPlusGenerator | 启动类注解、代码生成器 |
 
 ## 前端（Frontend）🔲
 
@@ -64,7 +78,8 @@
 |------|------|
 | 源码扫描 / Source Map | ✅ 完成（6091 文件，1791 源码文件） |
 | 架构分析 | ✅ 完成（5 篇 + 图） |
-| 模块/类分析 | 🔲 0%（1791 目标文件） |
+| 模块/类分析（后端 Java） | ✅ 100%（1003 个 Java，11 篇文档） |
+| 模块/类分析（前端/数据库） | 🔲 待分析 |
 | 前端分析 | 🔲 0% |
 | 数据库分析 | 🔲 0% |
-| 权限二次开发建议 | 🔲 依赖 `security-model.md`（已完成基石） |
+| 权限二次开发建议 | 🔲 依赖 `security-model.md` + `backend/api-permissions.md`（基石已完成） |

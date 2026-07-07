@@ -7,7 +7,7 @@ graph TD
     WEB -->|REST API| BE["core-backend<br/>(Spring Boot 3.3)"]
     BE -->|JDBC / SQL| EXT[("External DataSources<br/>MySQL/ClickHouse/Oracle/.../API")]
     BE -->|JDBC| META[("H2 Metadata DB<br/>(embedded)")]
-    BE -->|Feign (distributed mode)| PERM[("Permission Service<br/>(api-permissions / de-xpack)")]
+    BE -->|Feign - distributed mode| PERM[("Permission Service<br/>(api-permissions / de-xpack)")]
     BE -->|WebSocket| WS["WebSocket<br/>(real-time dashboard)"]
     BE -->|template SQL| ENGINE["Calcite SQL Engine<br/>(cross-source query)"]
 

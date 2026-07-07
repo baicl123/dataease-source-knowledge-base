@@ -11,7 +11,7 @@
       "total": 431,
       "source": 418,
       "loc": 59177,
-      "analyzedSource": 0
+      "analyzedSource": 418
     },
     "core-frontend": {
       "total": 1560,
@@ -59,49 +59,49 @@
       "total": 304,
       "source": 303,
       "loc": 10622,
-      "analyzedSource": 0
+      "analyzedSource": 303
     },
     "sdk-api-permissions": {
       "total": 97,
       "source": 96,
       "loc": 2857,
-      "analyzedSource": 0
+      "analyzedSource": 96
     },
     "sdk-api-sync": {
       "total": 19,
       "source": 18,
       "loc": 836,
-      "analyzedSource": 0
+      "analyzedSource": 18
     },
     "sdk-common": {
       "total": 116,
       "source": 115,
       "loc": 6476,
-      "analyzedSource": 0
+      "analyzedSource": 115
     },
     "sdk-distributed": {
       "total": 12,
       "source": 11,
       "loc": 924,
-      "analyzedSource": 0
+      "analyzedSource": 11
     },
     "sdk-ext-datafilling": {
       "total": 11,
       "source": 10,
       "loc": 677,
-      "analyzedSource": 0
+      "analyzedSource": 10
     },
     "sdk-ext-datasource": {
       "total": 29,
       "source": 28,
       "loc": 1763,
-      "analyzedSource": 0
+      "analyzedSource": 28
     },
     "sdk-ext-view": {
       "total": 52,
       "source": 51,
       "loc": 1693,
-      "analyzedSource": 0
+      "analyzedSource": 51
     },
     "staticResource": {
       "total": 2,
@@ -111,9 +111,9 @@
     }
   },
   "sourceFileAnalysis": {
-    "analyzed": 0,
+    "analyzed": 1050,
     "total": 1791,
-    "percent": 0.0
+    "percent": 58.6
   },
   "docsProgress": {
     "architecture": [
@@ -123,8 +123,22 @@
       "build-deploy",
       "security-model"
     ],
-    "modules": [],
-    "backend": [],
+    "modules": [
+      "index"
+    ],
+    "backend": [
+      "foundation",
+      "auth-core",
+      "api-permissions",
+      "dataset",
+      "datasource",
+      "engine",
+      "visualization",
+      "ai-copilot",
+      "job-msg-resource",
+      "integration-sdk",
+      "application-entry"
+    ],
     "frontend": [],
     "database": [],
     "plugin": [],
@@ -133,5 +147,5 @@
     "adr": [],
     "glossary": []
   },
-  "notes": "Architecture-level docs completed (5 docs + diagram). Source-file (class/component) analysis pending. Coverage percent counts analyzed source files / total source files."
+  "notes": "Backend Java analysis 100% done (1003 files, 11 docs). Frontend/Database pending."
 }
