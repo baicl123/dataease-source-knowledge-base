@@ -1,7 +1,7 @@
 # 安全模型（鉴权与权限）
 
 > 版本：**v2.10.7**。本文是 TASKS.md 第 9 项（二次开发·权限检查 RBAC/ACL/ABAC）的**基石**，所有结论均附源码证据。
-> 配套：`docs/diagrams/architecture.mmd`（Diagram 3 认证流、Diagram 4 权限域）。
+> 配套：`docs/diagrams/architecture.md`（图 3 认证流、图 4 权限域）。
 
 ## 1. 核心结论（先讲重点）
 
@@ -70,12 +70,10 @@
   - `SubstituleLoginServer.java` / `SubstituleOrgServer.java` / `SubstituteUserServer.java` —— 同类兜底。
 - `de-xpack`（企业版扩展）：git submodule，**本仓仅为空指针**。LDAP/CAS/OIDC、细粒度审计等高级能力在此实现，不随 OSS 源码发布。
 
-## 6. 二次开发切入点（为 Task 9 预留）
+## 6. 二次开发切入点
 
-1. **统一策略引擎**：在 `AuthApi` 实现层引入 Casbin（RBAC/ABAC 模型），替换/增强现有分散的权限判断。
-2. **行/列权限增强**：扩展 `RowPermissionsApi`/`ColumnPermissionsApi` 的规则表达能力，结合 `SysVariablesApi` 做上下文感知 ABAC。
-3. **认证源扩展**：实现 `loginServer` Bean 或 `de-xpack` 认证扩展，接入企业 IdP（OIDC/SAML/LDAP）。
-4. **前端守卫对齐**：`core-frontend/src/permission.ts` 的菜单/按钮级控制需与后端 `AuthApi` 权限树保持一致。
+> 二次开发的完整方案、四套实现路径（A/B/C/D）、Casbin 集成、安全加固与实施检查清单，已集中收录于
+> [`docs/customization/permission-development-guide.md`](../customization/permission-development-guide.md)（Task 9 交付物）。该文档的 §0.1 也保留了本架构相关的切入点速览。
 
 ## 7. 待验证项
 

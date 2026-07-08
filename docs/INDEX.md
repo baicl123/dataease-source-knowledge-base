@@ -9,7 +9,7 @@
 1. **架构层**（本项目已完成）→ 先看本文，再读 `architecture/`
 2. **模块/类层**（进行中）→ `modules/`、`backend/`、`frontend/`
 3. **数据库层** → `database/`
-4. **升级与二次开发** → `upgrade/`、`adr/`（含权限二次开发建议）
+4. **二次开发与版本升级** → `customization/`（二次开发：权限方案 / 未来改造记录）、`upgrade/`（版本升级差异，Task 8 待建）
 
 ## 架构（Architecture）✅
 
@@ -20,7 +20,7 @@
 | [directory-structure.md](architecture/directory-structure.md) | 仓库/后端包/前端 src/SDK 目录结构 |
 | [build-deploy.md](architecture/build-deploy.md) | Maven 多模块、构建、部署模式、安装脚本 |
 | [security-model.md](architecture/security-model.md) | **鉴权与权限模型**（CommunityTokenFilter + 权限领域 API + RBAC/ACL/ABAC 映射）— Task 9 基石 |
-| [../diagrams/architecture.mmd](../diagrams/architecture.mmd) | Mermaid 架构图（系统上下文/分层/认证流/权限域） |
+| [../diagrams/architecture.md](../diagrams/architecture.md) | 架构图集（系统上下文/分层/认证流/权限域，含中文说明） |
 
 ## 模块（Modules）✅
 
@@ -63,31 +63,39 @@
 | [components.md](frontend/components.md) | components/ (133 文件) | 画布核心（CanvasCore+Shape+MarkLine）、矩阵排版、筛选器 |
 | [custom-component.md](frontend/custom-component.md) | custom-component/ (112 文件) | 组件注册表（16 项）、v-query 筛选器联动、user-view 图表容器 |
 
-## 数据库（Database）🔲
+## 数据库（Database）✅
 
-- `database/`：SQL 脚本、Mapper、表结构 — *待分析*（38 个 SQL）
-
-## 插件机制（Plugin）🔲
-
-- `plugin/`：扩展点（sdk/extensions）机制 — *待分析*
-
-## API 说明（API）🔲
-
-- `api/`：对外 REST API 汇总（基于 Knife4j/OpenAPI）— *待分析*
-
-## 升级与二次开发（Upgrade）✅
+> 38 个 SQL（migration 18 + desktop 18 + distributed 1 + installer 1）+ 6 个 Mapper XML，去重后 **78 张表**全部解析。
+> 所有表结构由脚本从 DDL 自动提取，结论可回溯到源码。
 
 | 文档 | 内容 |
 |------|------|
-| [permission-development-guide.md](upgrade/permission-development-guide.md) | **权限二次开发建议（Task 9）** — 六层权限架构剖析 + RBAC/ACL/ABAC 落地方案（A/B/C/D 四方案）+ Casbin 集成 + 安全加固 + 实施检查清单 |
+| [index.md](database/index.md) | 文件清单（38 SQL + 6 Mapper）、表清单（按域）、ER 关系摘要、desktop vs migration 差异 |
+| [schema-core.md](database/schema-core.md) | 核心业务域（15 表）：数据源/驱动/引擎、数据集、图表、系统设置/菜单/RSA/收藏 |
+| [schema-visualization.md](database/schema-visualization.md) | 可视化域 + 发布快照（28 表）：仪表板/主题/背景/水印/模板/跳转/联动/外部参数/snapshot_* |
+| [schema-extension.md](database/schema-extension.md) | 扩展/企业域（22 表）：分享/认证/Copilot/导出/字体/插件/阈值/Webhook/地理/示例数据 |
+| [schema-quartz.md](database/schema-quartz.md) | Quartz 调度（11 张 `QRTZ_*` 表） |
+| [migrations.md](database/migrations.md) | Flyway 迁移 lineage（V2.0 基线 → V2.10.7 增量），逐版本变更与演进趋势 |
+| [mappers.md](database/mappers.md) | 6 个 `Ext*` Mapper 详解（107 条自定义 SQL：复制/快照/恢复/模板导入） |
 
-## 架构决策记录（ADR）🔲
+## 二次开发（Customization）✅
 
-- `adr/`：关键架构决策（如自研鉴权、Calcite 引擎选型、可插拔权限）— *待补充*
+> 所有二次开发相关内容（建议方案 + 未来实际改造记录）统一存放于 `customization/`。
 
-## 术语表（Glossary）🔲
+| 文档 | 内容 |
+|------|------|
+| [permission-development-guide.md](customization/permission-development-guide.md) | **权限二次开发建议（Task 9）** — 六层权限架构剖析 + RBAC/ACL/ABAC 落地方案（A/B/C/D 四方案）+ Casbin 集成 + 安全加固 + 实施检查清单 |
 
-- `glossary/`：术语对照（Dataset / Datasource / Visualization / Panel / BusiResource ...）— *待补充*
+## 版本升级（Upgrade）🔲
+
+- `upgrade/`：版本升级差异分析（变更摘要 / 影响范围 / 兼容性风险）— *Task 8 待建*
+
+## 待补充（非当前 9 任务范围，未来可选）
+
+- **插件机制**（`plugin/`）：sdk/extensions 扩展点 — 待分析
+- **对外 API 汇总**（`api/`）：基于 Knife4j/OpenAPI — 待分析
+- **架构决策记录**（`adr/`）：关键架构决策 — 待补充
+- **术语表**（`glossary/`）：术语对照（Dataset / Datasource / Visualization / Panel / BusiResource …）— 待补充
 
 ## 进度速览
 
@@ -97,5 +105,5 @@
 | 架构分析 | ✅ 完成（5 篇 + 图） |
 | 模块/类分析（后端 Java） | ✅ 100%（1003 个 Java，11 篇文档） |
 | 模块/类分析（前端） | ✅ 100%（463 .vue + 239 .ts，12 篇文档） |
-| 数据库分析 | 🔲 0%（38 SQL） |
-| 权限二次开发建议 | ✅ 完成（`upgrade/permission-development-guide.md`，含 4 套方案 + 安全加固） |
+| 数据库分析 | ✅ 完成（38 SQL + 6 Mapper，78 张表全解析，7 篇文档） |
+| 权限二次开发建议 | ✅ 完成（`customization/permission-development-guide.md`，含 4 套方案 + 安全加固） |

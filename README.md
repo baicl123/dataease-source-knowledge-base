@@ -9,8 +9,7 @@
 
 ## 当前分析版本
 
-**DataEase v2.10.7**  
-（后续版本分析将保存在 `versions/` 中，`versions/latest/` 始终指向最新完成分析的版本）
+**DataEase v2.10.7**
 
 ## 目录结构
 
@@ -19,27 +18,21 @@
 - `TODO.md`：待办事项与未来计划
 - `CHANGELOG.md`：知识库本身的更新记录
 - `docs/`：人类可读的分析文档（中文）
-  - `architecture/`：总体架构
-  - `modules/`：模块级分析
-  - `backend/`：Java 类级分析
-  - `frontend/`：Vue 组件分析
-  - `database/`：数据库、SQL、Mapper
-  - `api/`：API 说明
-  - `plugin/`：插件机制
-  - `deployment/`：构建、部署
-  - `adr/`：架构决策记录
-  - `upgrade/`：版本升级差异分析
-  - `glossary/`：术语表
+  - `architecture/`：总体架构（5 篇 + 安全模型）
+  - `modules/`：模块级分析（后端业务域地图）
+  - `backend/`：Java 类级分析（11 篇，1003 个 Java 100% 覆盖）
+  - `frontend/`：Vue 组件分析（12 篇，702 个 .vue/.ts 100% 覆盖）
+  - `database/`：数据库、SQL、Mapper（7 篇，78 张表全解析）
+  - `customization/`：二次开发相关（建议方案 + 未来实际改造记录，如权限二次开发建议）
+  - `upgrade/`：版本升级差异分析（Task 8 待建）
   - `diagrams/`：架构图（Mermaid）
 - `metadata/`：结构化数据（JSON），供 AI 和自动化工具消费
   - `source-map.json`：全仓库文件清单
-  - `symbol-index.json`：类/方法/组件索引
-  - `dependency-graph.json`：模块/类依赖关系
-  - `call-graph.json`：调用链
   - `coverage.json`：分析覆盖率统计
   - `statistics.json`：代码统计
-- `versions/`：按源码版本归档的知识库快照
-- `scripts/`：辅助脚本（可选）
+- `scripts/`：辅助脚本（DDL 解析、schema 聚合、版本差异扫描等）
+
+> 注：早期 README 曾规划 `api/`、`deployment/`、`adr/`、`glossary/`、`plugin/`、`versions/` 等目录，但分析工作由 `TASKS.md` 的 9 个任务驱动，内容按主题落入了上述实际目录（如 API 分析在 `frontend/api-layer.md` 与 `backend/api-permissions.md`，部署在 `architecture/build-deploy.md`）。这些规划目录已清理，避免结构错位。
 
 ## 使用方式
 
@@ -53,14 +46,14 @@
 4. 定期检查 `metadata/coverage.json` 确认覆盖率进度，直到 100%。
 
 ### 同步到知识库
-- 乐享知识库中的`SKB-dataease`
-- ima中的`SKB-dataease`
+- 乐享知识库中的 `SKB-dataease`
+- ima 中的 `SKB-dataease`
 
 ### 版本升级（例如 v2.10.7 → v2.10.25）
 1. 更新源码仓库，记录新版本号。
 2. 让 AI 执行增量更新：“请根据 AGENTS.md 执行增量更新，从 v2.10.7 到 v2.10.25”。
-3. AI 会自动扫描差异，生成 `docs/upgrade/` 文档，并更新受影响的文档和元数据。
-4. 更新 `versions/latest/` 指向新版本，并在本 README 中修改“当前分析版本”。
+3. AI 会自动扫描差异，生成 `docs/upgrade/` 版本差异文档，并更新受影响的文档和元数据；二次开发相关内容（建议方案与实际改造记录）统一归入 `docs/customization/`。
+4. （版本快照归档目录 `versions/` 将在 Task 8 建立升级机制后引入。）
 
 ## 维护原则
 

@@ -1,7 +1,7 @@
 # DataEase 整体架构总览
 
 > 版本：**v2.10.7** ｜ 分析依据：`core/`、`sdk/`、`pom.xml`、`package.json`、关键启动/鉴权类（见各文档引用）。
-> 配套图：`docs/diagrams/architecture.mmd`
+> 配套图：`docs/diagrams/architecture.md`
 
 ## 1. 产品定位
 
@@ -74,7 +74,7 @@ DataEase 是开源 BI（商业智能）工具，支持：
 
 ## 7. 与后续集成目标的关系
 
-`README.md` 规划本知识库服务于后续集成 **RuoYi-Vue-Plus**、**Casbin**。当前 v2.10.7 权限模型为**自研可插拔架构**（见 `security-model.md`）：社区版用 `CommunityTokenFilter` + 权限领域 API；企业版由 `de-xpack` 扩展。接入 Casbin 做 ABAC/RBAC 统一策略引擎的切入点，建议放在 `sdk/api/api-permissions` 的 `AuthApi` 实现层与数据集行列权限（`RowPermissionsApi`/`ColumnPermissionsApi`）处。
+`README.md` 规划本知识库服务于后续集成 **RuoYi-Vue-Plus**、**Casbin**。当前 v2.10.7 权限模型为**自研可插拔架构**（见 `security-model.md`）：社区版用 `CommunityTokenFilter` + 权限领域 API；企业版由 `de-xpack` 扩展。接入 Casbin 做 ABAC/RBAC 统一策略引擎的切入点，建议放在 `sdk/api/api-permissions` 的 `AuthApi` 实现层与数据集行列权限（`RowPermissionsApi`/`ColumnPermissionsApi`）处。二次开发的具体方案、四套实现路径与实施检查清单，见 [`docs/customization/permission-development-guide.md`](../customization/permission-development-guide.md)。
 
 ## 8. 待验证项
 

@@ -18,6 +18,15 @@
 
 ---
 
+## 0.1 二次开发切入点速览
+
+> 以下要点从 `docs/architecture/security-model.md` §6 抽取，作为二次开发总入口的概览。完整方案见本文第 3 节。
+
+1. **统一策略引擎**：在 `AuthApi` 实现层引入 Casbin（RBAC/ABAC 模型），替换/增强现有分散的权限判断。
+2. **行/列权限增强**：扩展 `RowPermissionsApi`/`ColumnPermissionsApi` 的规则表达能力，结合 `SysVariablesApi` 做上下文感知 ABAC。
+3. **认证源扩展**：实现 `loginServer` Bean 或 `de-xpack` 认证扩展，接入企业 IdP（OIDC/SAML/LDAP）。
+4. **前端守卫对齐**：`core-frontend/src/permission.ts` 的菜单/按钮级控制需与后端 `AuthApi` 权限树保持一致。
+
 ## 1. 权限架构全景（源码验证）
 
 ### 1.1 请求认证链路（L1）
@@ -618,12 +627,12 @@ public class CasbinPermissionEngine {
 ## 6. 相关文档
 
 - [安全模型总览](../architecture/security-model.md) — 权限架构全景与 `@XpackInteract` 机制
-- [权限领域 API（api-permissions）](api-permissions.md) — RBAC/ACL/ABAC 契约层
-- [鉴权与分享（auth-core）](auth-core.md) — 登录/分享链接/JWT 签发
-- [集成与 SDK 能力层](integration-sdk.md) — CommunityTokenFilter / LicenseUtil / Feign
-- [数据集（Dataset）](dataset.md) — 数据集建模与查询链路
-- [SQL 引擎（Engine）](engine.md) — ST4 SQL 构建与 Calcite 联邦查询
-- [AI 与 Copilot](ai-copilot.md) — 外部 LLM 调用安全风险
+- [权限领域 API（api-permissions）](../backend/api-permissions.md) — RBAC/ACL/ABAC 契约层
+- [鉴权与分享（auth-core）](../backend/auth-core.md) — 登录/分享链接/JWT 签发
+- [集成与 SDK 能力层](../backend/integration-sdk.md) — CommunityTokenFilter / LicenseUtil / Feign
+- [数据集（Dataset）](../backend/dataset.md) — 数据集建模与查询链路
+- [SQL 引擎（Engine）](../backend/engine.md) — ST4 SQL 构建与 Calcite 联邦查询
+- [AI 与 Copilot](../backend/ai-copilot.md) — 外部 LLM 调用安全风险
 
 ---
 
