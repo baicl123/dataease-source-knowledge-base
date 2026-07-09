@@ -112,7 +112,7 @@
 ## 8. 项目特定约定（DataEase SKB）
 
 - **二次开发文档目录**：所有二次开发相关内容（建议方案、改造方案、实际改造记录）统一存放于 `docs/customization/`，不与源码分析文档混放。
-- **版本升级文档目录**：版本升级差异分析存放于 `docs/upgrade/`（Task 8 待建）。
+- **版本升级文档目录**：版本升级机制与差异分析存放于 `docs/upgrade/`；机制规范见 `docs/upgrade/index.md`，差异引擎见 `scripts/diff_versions.py`，报告模板见 `docs/upgrade/template.md`。
 - 文档交叉引用使用相对路径（如 `../backend/dataset.md`），禁止使用绝对路径。
 
 ---

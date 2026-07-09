@@ -24,7 +24,7 @@
   - `frontend/`：Vue 组件分析（12 篇，702 个 .vue/.ts 100% 覆盖）
   - `database/`：数据库、SQL、Mapper（7 篇，78 张表全解析）
   - `customization/`：二次开发相关（建议方案 + 未来实际改造记录，如权限二次开发建议）
-  - `upgrade/`：版本升级差异分析（Task 8 待建）
+  - `upgrade/`：版本升级机制与差异分析（`index.md` 机制规范 + `template.md` 报告模板 + 历次升级报告）
   - `diagrams/`：架构图（Mermaid）
 - `metadata/`：结构化数据（JSON），供 AI 和自动化工具消费
   - `source-map.json`：全仓库文件清单
@@ -49,11 +49,16 @@
 - 乐享知识库中的 `SKB-dataease`
 - ima 中的 `SKB-dataease`
 
+### 仓库
+本知识库通过代码仓维护，需同步以下仓库：
+- git@atomgit.com:bcl123/dataease-source-knowledge-base.git
+- git@github.com:baicl123/dataease-source-knowledge-base.git
+
 ### 版本升级（例如 v2.10.7 → v2.10.25）
 1. 更新源码仓库，记录新版本号。
 2. 让 AI 执行增量更新：“请根据 AGENTS.md 执行增量更新，从 v2.10.7 到 v2.10.25”。
 3. AI 会自动扫描差异，生成 `docs/upgrade/` 版本差异文档，并更新受影响的文档和元数据；二次开发相关内容（建议方案与实际改造记录）统一归入 `docs/customization/`。
-4. （版本快照归档目录 `versions/` 将在 Task 8 建立升级机制后引入。）
+4. 版本升级机制由 `scripts/diff_versions.py`（版本差异引擎）与 `docs/upgrade/index.md`（机制规范）支撑，标准流程：生成新版 Source Map → 运行 diff → 填写升级报告 → 仅增量更新受影响文档。详见 `docs/upgrade/index.md`。（`versions/` 多版本文档归档为可选，当前未启用。）
 
 ## 维护原则
 

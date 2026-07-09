@@ -9,7 +9,7 @@
 1. **架构层**（本项目已完成）→ 先看本文，再读 `architecture/`
 2. **模块/类层**（进行中）→ `modules/`、`backend/`、`frontend/`
 3. **数据库层** → `database/`
-4. **二次开发与版本升级** → `customization/`（二次开发：权限方案 / 未来改造记录）、`upgrade/`（版本升级差异，Task 8 待建）
+4. **二次开发与版本升级** → `customization/`（二次开发：权限方案 / 未来改造记录）、`upgrade/`（版本升级机制 + 历次差异报告）
 
 ## 架构（Architecture）✅
 
@@ -86,9 +86,15 @@
 |------|------|
 | [permission-development-guide.md](customization/permission-development-guide.md) | **权限二次开发建议（Task 9）** — 六层权限架构剖析 + RBAC/ACL/ABAC 落地方案（A/B/C/D 四方案）+ Casbin 集成 + 安全加固 + 实施检查清单 |
 
-## 版本升级（Upgrade）🔲
+## 版本升级（Upgrade）✅
 
-- `upgrade/`：版本升级差异分析（变更摘要 / 影响范围 / 兼容性风险）— *Task 8 待建*
+> 版本升级机制（scan → diff → 报告 → 增量更新）已建立，详见 [`upgrade/index.md`](upgrade/index.md)。
+
+| 文档 | 内容 |
+|------|------|
+| [index.md](upgrade/index.md) | **版本升级机制规范**：触发条件、6 步工作流、文件类别→文档映射、多版本共存约定、兼容性风险分级、检查清单 |
+| [template.md](upgrade/template.md) | 升级报告模板（变更摘要 / 影响范围 / 兼容性风险 / 知识库更新计划） |
+| [v2.10.7-to-v2.10.8.md](upgrade/v2.10.7-to-v2.10.8.md) | **示例报告**（真实 diff 验证，综合风险 🟢 低：新增 `is_cross` 跨源列 + `datasetCrossListener`） |
 
 ## 待补充（非当前 9 任务范围，未来可选）
 
@@ -107,3 +113,4 @@
 | 模块/类分析（前端） | ✅ 100%（463 .vue + 239 .ts，12 篇文档） |
 | 数据库分析 | ✅ 完成（38 SQL + 6 Mapper，78 张表全解析，7 篇文档） |
 | 权限二次开发建议 | ✅ 完成（`customization/permission-development-guide.md`，含 4 套方案 + 安全加固） |
+| 版本升级机制 | ✅ 完成（`upgrade/index.md` 机制 + `diff_versions.py` 引擎 + v2.10.7→v2.10.8 示例） |

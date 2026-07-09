@@ -20,7 +20,7 @@ v2.10.7
 
 ## Current Phase
 
-Phase 2 —— 模块/类级分析全面完成（源码扫描、Source Map、整体架构、后端逐包、前端逐目录、权限二次开发建议、数据库分析；99.7% 覆盖率）
+Phase 3 —— 版本升级机制就绪（Task 1-9 全部完成：源码扫描、Source Map、整体架构、模块/类级分析、数据库分析、权限二次开发建议、版本升级机制）
 
 
 ## Task Status
@@ -33,7 +33,7 @@ Phase 2 —— 模块/类级分析全面完成（源码扫描、Source Map、整
 - [x] 5. 分析 Backend（docs/backend/ 11 篇，1003 个 Java 文件 100% 覆盖）
 - [x] 6. 分析 Frontend（docs/frontend/ 12 篇，463 .vue + 239 .ts 100% 覆盖）
 - [x] 7. 分析 Database（docs/database/，38 个 SQL + 6 Mapper XML，78 张表全解析）
-- [ ] 8. 建立版本升级机制（scripts/scan_source.py 已可复用做版本差异）
+- [x] 8. 建立版本升级机制（scripts/diff_versions.py 差异引擎 + docs/upgrade/index.md 机制规范 + template.md 模板 + v2.10.7→v2.10.8 真实示例）
 - [x] 9. 二次开发建议——权限检查（RBAC/ACL/ABAC，docs/customization/permission-development-guide.md）
 
 
